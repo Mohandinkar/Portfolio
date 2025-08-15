@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
-@theme{
-  --color-border:hsl(var(--border));
-  --color-background:hsl(var(--background));
-  --color-foreground:hsl(var(--foreground));
+@theme {
+  --color-border: hsl(var(--border));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
 
-  --color-primary:hsl(var(--primary));
-  --color-primary-foreground:hsl(var(--primary-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
 
-  --color-card:hsl(var(--card));
+  --color-card: hsl(var(--card));
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
@@ -20,23 +20,23 @@
   --animate-meteor: meteor 5s linear infinite;
 
   @keyframes float {
-    0%, 100%{
+    0%,
+    100% {
       transform: translateY(0);
     }
-    50%{
+    50% {
       transform: translateY(-10px);
     }
   }
-
-    @keyframes pulse-subtle {
-    0%, 100%{
+  @keyframes pulse-subtle {
+    0%,
+    100% {
       opacity: 1;
     }
-    50%{
-      opacity: 0.7;
+    50% {
+      opacity: 0.8;
     }
   }
-
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -47,36 +47,35 @@
       transform: translateY(0);
     }
   }
-
   @keyframes meteor {
     0% {
       transform: rotate(215deg) translateX(0);
+      opacity: 1;
     }
     70% {
       opacity: 1;
     }
     100% {
-      transform : rotate(215deg) translateX(-500px);
+      transform: rotate(215deg) translateX(-500px);
       opacity: 0;
     }
   }
 }
 
-
-@layer base{
-  :root{
+@layer base {
+  :root {
     --background: 210 40% 98%;
     --foreground: 222 47% 11%;
 
-    --card:0 0% 100%;
+    --card: 0 0% 100%;
 
     --primary: 250 47% 60%;
     --primary-foreground: 210 40% 98%;
 
-    --border:214 32% 91%;
+    --border: 214 32% 91%;
   }
 
-  .dark{
+  .dark {
     --background: 222 47% 4%;
     --foreground: 213 31% 91%;
 
@@ -85,24 +84,24 @@
     --primary: 250 65% 65%;
     --primary-foreground: 213 31% 91%;
 
-    --border:217 33% 20%;
+    --border: 217 33% 20%;
   }
 
-  *{
+  * {
     @apply border-border;
   }
 
-  html{
+  html {
     @apply scroll-smooth;
   }
 
-  body{
-    @apply bg-background text-foreground transition-colors duration-300 ;
-    font-feature-settings: "rling" 1 "calt" 1;
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
-@utility container{
+@utility container {
   margin-inline: auto;
   padding-inline: 2rem;
 
@@ -140,7 +139,9 @@
 }
 
 @utility cosmic-button {
-  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)] hover:scale-105 active:scale-95;
+  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
+         transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
+         hover:scale-105 active:scale-95;
 }
 
 @utility star {
@@ -153,9 +154,9 @@
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
 }
 
-#root{
+#root {
   max-width: 100%;
-  padding:0;
-  margin:0 auto;
-  text-align:center;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
 }
