@@ -26,8 +26,10 @@ const HeroSection = () => {
       </div>
       
       <div className='absolute bottom-8 left-1/2 transfrom -translate-x-1/2 flex flex-col items-center animate-bounce'>
+      <a href="#about" className="flex flex-col items-center">
     <span className='text-sm text-muted-foreground mb-2'>Scroll</span>
     <ArrowBigDown className='h-5 w-5 text-primary'/>
+    </a>
       </div>
     </section>
   )
