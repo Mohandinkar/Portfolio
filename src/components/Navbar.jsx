@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -41,8 +42,8 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed w-full z-40 transition-all duration-300",
-        isScrolled ? "py-3 bg-background/20 backdrop-blur-md shadow-xs" : "py-5"
+        "fixed w-full h-17 z-40 transition-all duration-300",
+        isScrolled ? "py-5 bg-background/20 backdrop-blur-md shadow-xs" : "py-5"
       )}
     >
       <div className="container flex items-center justify-between">
@@ -76,12 +77,12 @@ const Navbar = () => {
           className="md:hidden p-2 text-foreground z-50"
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
         <div
           className={cn(
-            "fixed inset-0 bg-background/95 z-40 flex flex-col items-center justify-center",
+            "fixed inset-0 bg-background/95 z-40 flex flex-col pt-25 ",
             "transition-all duration-300 md:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
@@ -102,6 +103,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+     {!isMenuOpen && <ThemeToggle />}
     </nav>
   );
 };
