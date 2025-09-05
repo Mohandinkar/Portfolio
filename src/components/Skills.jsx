@@ -75,7 +75,7 @@ const SkillINfo = [
       { name: 'Postman', logo: postmanLogo },
       { name: 'Compass', logo: mcLogo },
       { name: 'Vercel', logo: vercelLogo },
-      { name: 'Netlify', logo: netlifyLogo },
+      // { name: 'Netlify', logo: netlifyLogo },
       
     ],
   },

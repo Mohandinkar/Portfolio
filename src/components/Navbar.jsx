@@ -42,8 +42,8 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed w-full h-17 z-40 transition-all duration-300",
-        isScrolled ? "py-5 bg-background/20 backdrop-blur-md shadow-xs" : "py-5"
+        "fixed w-full h-17 z-40 transition-all ",
+        isScrolled && !isMenuOpen ? "py-5 bg-background/20 backdrop-blur-md shadow-xs" : "py-5"
       )}
     >
       <div className="container flex items-center justify-between">
@@ -73,7 +73,7 @@ const Navbar = () => {
         {/* mobile nav */}
 
         <button
-         onClick={isMenuOpen ? () => setIsMenuOpen(false) : handleMenuOpen}
+         onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden p-2 text-foreground z-50"
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
@@ -82,11 +82,11 @@ const Navbar = () => {
 
         <div
           className={cn(
-            "fixed inset-0 bg-background/95 z-40 flex flex-col pt-25 ",
-            "transition-all duration-300 md:hidden",
+            "fixed inset-0 w-full h-full bg-background/30 backdrop-blur-lg z-40 flex flex-col pt-25 ",
+            "transition-all duration-500 ease-in-out md:hidden",
             isMenuOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
+              ? "opacity-100 translate-y-0 pointer-events-auto"
+              : "opacity-0 -translate-y-full pointer-events-none"
           )}
         >
           <div className="flex flex-col space-y-8 text-xl">
