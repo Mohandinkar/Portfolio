@@ -6,6 +6,10 @@ import HeroSection from '@/components/HeroSection'
 import About from '../components/About'
 import Skills from '../components/Skills'
 import Project from '../components/Project'
+import Contact from '../components/Contact'
+import Footer from '../components/Footer'
+import ScrollToTop from '../components/ScrollToTop'
+
 
 const Home = () => {
   return (
@@ -28,6 +32,12 @@ const Home = () => {
         <Skills/>
 
         <Project />
+
+        <Contact/>
+
+        <Footer/>
+
+        <ScrollToTop />
       </main>
 
       
