@@ -2,17 +2,47 @@ import React, { useState } from 'react';
 import { Github, Send } from 'lucide-react';  // Import the Send icon
 import { cn } from '@/lib/utils';     // Assuming you use this for conditional classNames
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Twitch } from 'lucide-react';
+import { toast } from 'react-hot-toast';
+import emailjs from '@emailjs/browser';
+
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    setTimeout(() => {
+    //email js
+    const service_id = import.meta.env.VITE_SERVICE_ID;
+    const template_id = import.meta.env.VITE_TEMPLATE_ID;
+    const public_key = import.meta.env.VITE_PUBLIC_KEY;
+
+    const template_params = {
+      from_name: name,
+      from_email: email,
+      to_name: 'Mohan',
+      message: message,
+    };
+
+    emailjs.send(service_id, template_id, template_params, public_key)
+    .then(()=>{
+      toast.success('Message sent successfully');
+      console.log('Message sent successfully');
+      setName('');
+      setEmail('');
+      setMessage('');
       setIsSubmitting(false);
-    }, 1500);
+    })
+    .catch((error)=>{
+      toast.error('Message not sent');
+      console.log('Message not sent');
+      setIsSubmitting(false);
+    });
+
   };
 
   return (
@@ -38,7 +68,8 @@ const Contact = () => {
                 <input
                   type="text"
                   id="name"
-                  name="name"
+                  value={name}
+                  onChange= {(e) =>setName(e.target.value)}
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="abc "
@@ -52,7 +83,8 @@ const Contact = () => {
                 <input
                   type="email"
                   id="email"
-                  name="email"
+                  value={email}
+                  onChange= {(e) =>setEmail(e.target.value)}
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="abc@gmail.com"
@@ -65,7 +97,8 @@ const Contact = () => {
                 </label>
                 <textarea
                   id="message"
-                  name="message"
+                  value={message}
+                  onChange= {(e) =>setMessage(e.target.value)}
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
                   placeholder="Hello, I'd like to talk about..."

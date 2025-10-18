@@ -21,7 +21,7 @@ const Footer = () => {
         <p className="text-sm">&copy; {new Date().getFullYear()} Mohan Dinkar. All rights reserved.</p>
 
         <div className="text-xs">
-          Built with React and Tailwind CSS.
+          Built with &#xfe0f;&#x2764;&#xfe0f; by mohan
         </div>
       </div>
     </footer>
