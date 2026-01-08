@@ -4,6 +4,7 @@ import project1 from '../assets/project/project1.png';
 import project2 from '../assets/project/project2.png';
 import project3 from '../assets/project/project3.png';
 import project4 from '../assets/project/project4.png';
+import project5 from '../assets/project/project5.png';
 
 const Projects = [
   {
@@ -18,6 +19,23 @@ const Projects = [
   },
   {
     id: 2,
+    title: "PolyTalk – Real-Time Language Exchange Platform",
+    description:
+      "PolyTalk is a real-time language exchange platform that connects users worldwide to practice languages through instant messaging and video calls.",
+    image: project5,
+    tags: [  "React",
+  "Node.js",
+  "Express",
+  "MongoDB",
+  "Stream Chat",
+  "Stream Video",
+  "Zustand",
+  "React Query"],
+    live: "https://polytalk-p8mt.onrender.com",
+    github: "https://github.com/Mohandinkar/PolyTalk",
+  },
+  {
+    id: 3,
     title: "URL Shortener",
     description:
       "A lightweight URL shortener that lets users convert long URLs into short, shareable links. It includes analytics to track link usage and helps in managing and organizing URLs efficiently.",
@@ -27,7 +45,7 @@ const Projects = [
     github: "https://github.com/Mohandinkar/URL-Shortner",
   },
   {
-    id: 3,
+    id: 4,
     title: "Simon Game",
     description:
       "A fun web-based game where you test and improve your memory by repeating color and sound patterns.",
@@ -37,7 +55,7 @@ const Projects = [
     github: "https://github.com/Mohandinkar/Simon_game",
   },
   {
-    id: 4,
+    id: 5,
     title: "Discord Chat Bot",
     description:
       "A chatbot built for Discord servers that interacts with users, answers queries, and integrates with APIs to enhance server engagement. It supports commands and provides real-time responses.",
